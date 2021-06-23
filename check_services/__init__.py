@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import logging
 import argparse
 
-from send_mail import sendMail
+from ../send_mail import sendMail
 
 
 class CheckService:
