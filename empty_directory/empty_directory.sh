@@ -90,18 +90,6 @@ __parse_params() {
   fi
 }
 
-__is_boolean() {
-
-  local variable_name=$1
-  case "${!variable_name}" in
-    true|false|yes|no|y|n|1|0|enable|disable)
-      break ;;
-    *)
-      echo "${variable_name} must be a valid boolean"
-      return 1;;
-  esac
-}
-
 __prepare_variables() {
 
   local validation_errors=0
@@ -150,7 +138,9 @@ __targetdir_check() {
 
 }
 
-__debug_echo() {
+#TODO: Doesn't quite understand how below code works. using verbose_echo instead 
+# reference: https://stackoverflow.com/a/50003418/1986913
+__dry_run() {
   if [[ ! -t 0 ]]; then
     cat
   fi
